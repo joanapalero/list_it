@@ -57,5 +57,4 @@ class TasksController < ApplicationController
     @task.destroy
     redirect '/tasks'
   end
-
 end

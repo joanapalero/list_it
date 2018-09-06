@@ -1,0 +1,6 @@
+<h1>A New Task on <%= @list.name %> list</h1>
+
+<form method="post" action="/tasks/new/<%= @list.id %>">
+<input type="text" name="name" placeholder="Task Name">
+<input class="btn btn-primary" type="submit" name="create" value="Create">
+</form>

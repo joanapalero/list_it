@@ -1,4 +1,5 @@
-class Task < ActiveRecord::Base
-  belongs_to :list
-  belongs_to :user
+class User < ActiveRecord::Base
+  has_secure_password
+  has_many :lists
+  has_many :tasks, through: :lists
 end
