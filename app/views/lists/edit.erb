@@ -1,0 +1,15 @@
+<h1>Edit Your List Name</h1>
+
+<form method="post" action="/lists/<%=@list.id%>">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+<input type="text" name="name" value="<%=@list.name%>"><br><br>
+
+<% @list.tasks.each do |task| %>
+<h1><i class="fa fa-minus"></i><%= task.name %></h1>
+<a href="/tasks/<%= task.id %>/edit"><i class="fa fa-pencil"></i> Edit Task</a>
+<a href="/tasks/<%= task.id %>/delete"><i class="fa fa-times"></i> Delete Task</a>
+<% end %>
+
+<br>
+<input class="btn btn-primary" type="submit" name="update" value="Update">
+</form>

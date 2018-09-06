@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>List_It - Your List, Your Way</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/tasks"><i class="fa fa-paperclip"></i> ToDoo</a>
+  <ul class="nav navbar-nav">
+
+  <% if logged_in? %>
+  <li><a href="/lists/new">Create Your New List</a></li>
+  <li><a href="/tasks/new">Create Your New Task</a></li>
+  <li><a href="/logout">Log Out</a></li>
+
+  <% else %>
+  <li><a href="/login">Log In Here</a></li>
+  <li><a href="/signup">Sign Up Here</a></li>
+  <% end %>
+  </ul>
+</div>
+</div>
+</nav>
+<div class="col-md-6 col-xs-offset-2">
+
+<%= yield %>
+
+</div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>
