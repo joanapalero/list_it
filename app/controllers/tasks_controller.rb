@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   get '/tasks/new/:id' do
     redirect_if_not_logged_in
     @list = List.find_by_id(params[:id])
-    erb :'/tasks/new_on_list'
+    erb :'/tasks/new_task'
   end
 
   post '/tasks/new/:id' do
