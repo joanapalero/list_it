@@ -1,21 +1,33 @@
-<h1>Hello <%=@user.username %>!</h1>
+<h1>Welcome, <%=@user.username %> :)</h1>
 <a href="/lists/new"><button type="button" class="btn btn-default">Create A New List</button></a>
+<a href="/tasks/new"><button type="button" class="btn btn-default">Create A New Task</button></a>
 
 <div class="col-6">
 <% @lists.each do |list|%>
 <% if list.user_id == @user.id %>
 
+<h2>Your list:</h2>
+
 <!-- This pulls all the lists and checks it to see if it matches the user id before iterating over to the list -->
 <h2><%= list.name %></h2>
-<a href="/lists/<%=list.id%>/edit"><i class="fa fa-pencil"></i> Edit List</a>
-<a href="/lists/<%=list.id%>/delete"><i class="fa fa-times"></i> Delete List</a>
-<h4><a href="tasks/new/<%=list.id%>"><i class="fa fa-plus"></i> New Task</a></h4>
+<!-- <a href="/lists/<%=list.id%>/edit">&nbsp;&nbsp;<i class="edit list"></i> Edit List</a> -->
+<a href="/lists/<%=list.id%>/edit"><button type="button" class="btn btn-default"> Edit List</button></a>
+<a href="/lists/<%=list.id%>/delete"><button type="button" class="btn btn-default"> Delete List</button></a>
+<!-- <a href="/lists/<%=list.id%>/delete">&nbsp;&nbsp;<i class="delete list"></i> Delete List</a> -->
+<br>
+
+<!-- <h4><a href="tasks/new/<%=list.id%>"><i class="fa fa-plus"></i> New Task</a></h4> -->
 
 <% list.tasks.each do |task| %>
-<h4></i> <%= task.name %>
-<a href="/tasks/<%= task.id %>/edit"><i class="fa fa-pencil"></i>Edit</a>
-<a href="/tasks/<%= task.id %>/delete"><i class="fa fa-times"></i>Delete</a>
-</h4>
+<h4></i> <%= task.name %></h4>
+<a href="/tasks/<%=task.id%>/edit"><button type="button" class="btn btn-default"> Edit Task</button></a>
+<a href="/tasks/<%=task.id%>/delete"><button type="button" class="btn btn-default"> Delete Task</button></a>
+
+<!-- <a href="/tasks/<%= task.id %>/edit">&nbsp;&nbsp;<i class="edit list"></i> Edit Task</a>
+<a href="/tasks/<%= task.id %>/delete">&nbsp;&nbsp;<i class="delete list"></i> Delete Task</a> -->
+<br>
+
+
 <% end %>
 <% end %>
 <% end %>
